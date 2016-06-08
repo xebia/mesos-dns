@@ -1,0 +1,4 @@
+#!/bin/bash
+curl -L -s https://github.com/mvanholsteijn/docker-makefile/raw/master/.make-release-support > .make-release-support
+curl -L -s https://github.com/mvanholsteijn/docker-makefile/raw/master/Makefile > Makefile.mk
+[ ! -f Makefile ] && echo include Makefile.mk > Makefile
