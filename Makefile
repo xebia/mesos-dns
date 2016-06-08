@@ -1,5 +1,7 @@
 include Makefile.mk
 
+USERNAME=xebia
+NAME=$(shell basename $(PWD))
 
 pre-build: mesos-dns
 
