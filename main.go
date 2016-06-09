@@ -51,7 +51,7 @@ func set_string_from_env(value *string, name string) {
 
 func set_string_array_from_env(value *[]string, name string) {
 	if v := os.Getenv(name) ; v != "" {
-		*value = regexp.MustCompile("[ \t]+").Split(v, 32767)
+		*value = regexp.MustCompile("[[:space:]]+").Split(v, 32767)
 	}
 }
 

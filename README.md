@@ -32,10 +32,10 @@ You can configure mesos-dns using environment variables as show in the following
 
 - At least MESOS_DNS_ZK or MESOS_DNS_MASTERS has to be spcified for mesos-dns to start
 - If an environment variable is not specified, no value will be generated for it. 
-- for MESOS_DNS_IP_SOURCES, MESOS_DNS_RESOLVERS and MESOS_DNS_MASTERS a space separated list should be set.
+- for MESOS_DNS_IP_SOURCES, MESOS_DNS_RESOLVERS and MESOS_DNS_MASTERS a space separated list should be set. for example,
 
 ```
-MESOS_DNS_MASTERS="zoo01:2181 zoo02:2181 zoo03:2181"
+MESOS_DNS_MASTERS="mesos01:5050 mesos02:5050 mesos03:5050"
 ```
 
 An example command line:
