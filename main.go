@@ -31,6 +31,8 @@ type MesosDNSConfig struct {
   SOAExpire int `json:"SOAExpire,omitempty"`
   SOAMinTTL int `json:"SOAMinttl,omitempty"`
   IPSources []string `json:"IPSources,omitempty"`
+  Recurseon bool `json:"recurseon,omitempty"`
+  EnforceRFC952 bool `json:"enforceRFC952,omitempty"`
 }
 
 func set_bool_from_env(value *bool, name string) {
@@ -87,6 +89,8 @@ func main() {
 	set_int_from_env(&config.SOAExpire, "MESOS_DNS_SOA_EXPIRE")
 	set_int_from_env(&config.SOAMinTTL, "MESOS_DNS_MIN_TTL")
 	set_string_array_from_env(&config.IPSources, "MESOS_DNS_IP_SOURCES")
+	set_bool_from_env(&config.Recurseon, "MESOS_DNS_RECURSE_ON")
+	set_bool_from_env(&config.EnforceRFC952, "MESOS_DNS_ENFORCE_RFC952")
 
 	args := os.Args[1:]
 	filename := ""
@@ -110,10 +114,7 @@ func main() {
 		log.Fatal(err)
 	}
 		
-	if os.Getenv("MESOS_DNS_DEBUG") != "" {
-		log.Println(string(str))
-	}
-
+	log.Println(string(str))
 	err = ioutil.WriteFile(filename, str, 0644)
 	if err != nil {
 		log.Fatal(err)
