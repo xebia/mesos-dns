@@ -1,4 +1,4 @@
-FROM mesosphere/mesos-dns:0.5.2
+FROM mesosphere/mesos-dns:v0.6.0
 
 ADD mesos-dns /usr/bin/mesos-dns-starter
 
