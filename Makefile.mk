@@ -41,7 +41,7 @@ post-push:
 
 docker-build: .release
 	docker build -t $(IMAGE):$(VERSION) .
-	docker tag  -f $(IMAGE):$(VERSION) $(IMAGE):latest
+	docker tag $(IMAGE):$(VERSION) $(IMAGE):latest
 
 .release:
 	@echo "release=0.0.0" > .release
